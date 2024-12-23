@@ -7,6 +7,7 @@ import { ElectricityFootprintModule } from './electricity-footprint/electricity-
 import { NaturalGasFootprintModule } from './natural-gas-footprint/natural-gas-footprint.module';
 import { FuelOilFootprintModule } from './fuel-oil-footprint/fuel-oil-footprint.module';
 import { PropaneFootprintModule } from './propane-footprint/propane-footprint.module';
+import { VehiclesFootprintModule } from './vehicles-footprint/vehicles-footprint.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PropaneFootprintModule } from './propane-footprint/propane-footprint.mo
     NaturalGasFootprintModule,
     FuelOilFootprintModule,
     PropaneFootprintModule,
+    VehiclesFootprintModule,
   ],
   controllers: [AppController],
   providers: [AppService],
