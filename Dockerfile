@@ -1,7 +1,7 @@
-# Use the official Node.js image as the base image
-FROM node:22
+# Stage 1: Build the application
+FROM node:22 AS builder
 
-# Create and set the working directory
+# Set the working directory
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
@@ -13,8 +13,24 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Build the application
+RUN npm run build
+
+# Stage 2: Run the application
+FROM node:22-alpine
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the built application from the builder stage
+COPY --from=builder /usr/src/app/dist ./dist
+COPY --from=builder /usr/src/app/package*.json ./
+
+# Install only production dependencies
+RUN npm install --only=production
+
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Command to run the application in development mode
-CMD ["npm", "run", "start:dev"]
+# Command to run the application
+CMD ["node", "dist/main.js"]

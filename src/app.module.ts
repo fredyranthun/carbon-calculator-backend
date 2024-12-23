@@ -9,7 +9,14 @@ import { FuelOilFootprintModule } from './fuel-oil-footprint/fuel-oil-footprint.
 import { PropaneFootprintModule } from './propane-footprint/propane-footprint.module';
 
 @Module({
-  imports: [HousingFootprintModule, ZipCodesModule, ElectricityFootprintModule, NaturalGasFootprintModule, FuelOilFootprintModule, PropaneFootprintModule],
+  imports: [
+    HousingFootprintModule,
+    ZipCodesModule,
+    ElectricityFootprintModule,
+    NaturalGasFootprintModule,
+    FuelOilFootprintModule,
+    PropaneFootprintModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
