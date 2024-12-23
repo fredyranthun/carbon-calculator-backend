@@ -31,7 +31,7 @@ describe('VehiclesFootprintController', () => {
         milesPerYear,
         milesPerGallon,
         regularMaintenance,
-      }),
+      }).vehicleFootprint,
     ).toBeCloseTo(expectedFootprint, 1);
   });
 });

@@ -14,10 +14,14 @@ export class VehiclesFootprintController {
   ) {
     const { milesPerYear, milesPerGallon, regularMaintenance } =
       calculateVehicleFootprintDto;
-    return this.vehiclesFootprintService.calculateFootprint(
+    const vehicleFootprint = this.vehiclesFootprintService.calculateFootprint(
       milesPerYear,
       milesPerGallon,
       regularMaintenance,
     );
+
+    return {
+      vehicleFootprint,
+    };
   }
 }

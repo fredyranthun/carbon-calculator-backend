@@ -58,6 +58,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Documentation
+
+Documentation (Swagger UI) can be accessed via
+`http://localhost:3000/api`
+
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Stay in Touch
+
+- Author [Fredy Ranthun](https://github.com/fredyranthun)
