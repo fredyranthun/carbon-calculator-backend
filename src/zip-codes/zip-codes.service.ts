@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
+import * as json from './zip-codes.json';
 
 interface ZipCode {
   zipCode: string;
@@ -8,21 +7,12 @@ interface ZipCode {
   eGridSubregion: string;
 }
 
-interface ZipCodeData {
-  zip_code: string;
-  state: string;
-  primary_eGRID_subregion: string;
-}
-
 @Injectable()
 export class ZipCodesService {
   private zipCodes: ZipCode[] = [];
 
   constructor() {
-    const filePath = path.resolve(__dirname, '..', '..', 'zip-codes.json');
-    const data = fs.readFileSync(filePath, 'utf8');
-    const zipCodesData: ZipCodeData[] = JSON.parse(data);
-    this.zipCodes = zipCodesData.map((zipCodeData) => ({
+    this.zipCodes = json.map((zipCodeData) => ({
       zipCode: zipCodeData.zip_code,
       state: zipCodeData.state,
       eGridSubregion: zipCodeData.primary_eGRID_subregion,
