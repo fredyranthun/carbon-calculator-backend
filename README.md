@@ -61,7 +61,7 @@ $ npm run test:cov
 ## Documentation
 
 Documentation (Swagger UI) can be accessed via
-`http://localhost:3000/api`
+`http://localhost:4000/api`
 
 ## License
 
