@@ -12,13 +12,10 @@ export class VehiclesFootprintController {
   calculate(
     @Body() calculateVehicleFootprintDto: CalculateVehiclesFootprintDto,
   ) {
-    const { milesPerYear, milesPerGallon, regularMaintenance } =
-      calculateVehicleFootprintDto;
-    const vehicleFootprint = this.vehiclesFootprintService.calculateFootprint(
-      milesPerYear,
-      milesPerGallon,
-      regularMaintenance,
-    );
+    const vehicles = calculateVehicleFootprintDto.vehicles;
+
+    const vehicleFootprint =
+      this.vehiclesFootprintService.calculateFootprint(vehicles);
 
     return {
       vehicleFootprint,

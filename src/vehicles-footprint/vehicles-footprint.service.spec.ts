@@ -22,7 +22,7 @@ describe('VehiclesFootprintService', () => {
     const expectedFootprint = 7_854;
 
     expect(
-      service.calculateFootprint(milesPerYear, milesPerGallon, true),
+      service.calculateFootprintPerVehicle(milesPerYear, milesPerGallon, true),
     ).toBeCloseTo(expectedFootprint, 1);
   });
 
@@ -32,7 +32,29 @@ describe('VehiclesFootprintService', () => {
     const expectedFootprint = 7_979.7;
 
     expect(
-      service.calculateFootprint(milesPerYear, milesPerGallon, false),
+      service.calculateFootprintPerVehicle(milesPerYear, milesPerGallon, false),
     ).toBeCloseTo(expectedFootprint, 1);
+  });
+
+  it('should calculate total footprint', () => {
+    const vehicles = [
+      {
+        milesPerYear: 10_000,
+        milesPerGallon: 25,
+        regularMaintenance: true,
+      },
+      {
+        milesPerYear: 10_000,
+        milesPerGallon: 25,
+        regularMaintenance: false,
+      },
+    ];
+
+    const expectedFootprint = 15_833.7;
+
+    expect(service.calculateFootprint(vehicles)).toBeCloseTo(
+      expectedFootprint,
+      1,
+    );
   });
 });

@@ -28,9 +28,13 @@ describe('VehiclesFootprintController', () => {
 
     expect(
       controller.calculate({
-        milesPerYear,
-        milesPerGallon,
-        regularMaintenance,
+        vehicles: [
+          {
+            milesPerYear,
+            milesPerGallon,
+            regularMaintenance,
+          },
+        ],
       }).vehicleFootprint,
     ).toBeCloseTo(expectedFootprint, 1);
   });
