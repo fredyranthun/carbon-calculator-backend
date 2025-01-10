@@ -70,3 +70,9 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ## Stay in Touch
 
 - Author [Fredy Ranthun](https://github.com/fredyranthun)
+
+## Next steps
+
+For the next step, I would like to create a generalization of the calculations. The ideal solution would store the validations, the input schema, and all the categories in a database/ centralized manager, making it easy to update or include a new category/subcategory without changing the code.
+
+Instead of having a new module for every category, would be practical to have a unique way to validate the inputs, getting the constants, and performing the calculation as needed. It would involve a little bit more of code, and maybe it would get more complex, but it is a great way to imagine a cenario where there are a lot more categories (e.g.: hundreds or more).
